@@ -1,6 +1,6 @@
 from __future__ import print_function
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
-from linux_kernels.x86_32.syscalls_for_python import linux_kernel_2_6
+from linux_kernels.x86_32.kernel_functions import linux_kernel_2_6
 mu=Uc(UC_ARCH_X86, UC_MODE_32)
 mu.mem_map(0, 4*1024)
 mu.hook_add(UC_HOOK_INTR, linux_kernel_2_6)
