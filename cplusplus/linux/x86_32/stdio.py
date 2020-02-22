@@ -1,5 +1,4 @@
 # modelled from [stdio.h]
-from __future__ import print_function
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
 from linux_kernels.x86_32.kernel_functions import linux_kernel_2_6
 
