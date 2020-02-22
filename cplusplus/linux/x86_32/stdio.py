@@ -101,7 +101,7 @@ def scanf(format_, *va_list): # va_list gets treated like a pointer.
   del getkey, pos_, s_0
 
 def printf(format_, *va_list):
-  global INT_0x80
+  global INT_0x80, mu
   X86_CODE32,ZB_Array=b'',b'\0'*3
   for a in format_:
     X86_CODE32+=b'\xBA\1'+ZB_Array+b'\xB9'+eval(f"b'{chr(92)+hex(a)[1:]}'")+ZB_Array+b'\xBB\1'+ZB_Array+b'\xB8\4'+ZB_Array+INT_0x80
