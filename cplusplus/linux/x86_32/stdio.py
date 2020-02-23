@@ -9,7 +9,6 @@ exec(Github_import(username="Asmeble",repo="The_wrecking_ball",branch="v1-beta_2
 
 
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
-#from kernel_functions import linux_kernel_2_6
 
 mu=Uc(UC_ARCH_X86, UC_MODE_32)
 mu.mem_map(0, 4*1024)
