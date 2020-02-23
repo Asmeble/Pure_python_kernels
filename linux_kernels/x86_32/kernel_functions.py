@@ -47,7 +47,7 @@ def linux_kernel_2_6(uc, intno, user_data):
       if args[arg] != 0:
         args_[arg]=args[arg]
     args=args_
-    for a in open('linux_kernels/x86_32/function_lookup.txt', mode='r').readlines():
+    for a in wget("https://raw.githubusercontent.com/Asmeble/The_wrecking_ball/v1-beta_2.22.2020/linux_kernels/x86_32/function_lookup.txt").text:
       function_lookup+=a
     eval(function_lookup).get(uc.reg_read(UC_X86_REG_EAX))(**args)
     del arg, a, args, args_, function_lookup
