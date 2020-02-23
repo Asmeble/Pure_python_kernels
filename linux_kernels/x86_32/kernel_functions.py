@@ -4,8 +4,9 @@ def Github_import(username, repo, branch, path_to_module):
   return wget("https://raw.githubusercontent.com/"+username+"/"+repo+"/"+branch+"/"+path_to_module).text
 
 exec(repr(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")))
+exec(repr(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/x86_const.py")))
 
-from unicorn.x86_const import UC_X86_REG_EAX,UC_X86_REG_EBX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI
+from x86_const import UC_X86_REG_EAX,UC_X86_REG_EBX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI
 
 def sys_write(fd, constbuf, count):
   print(chr(constbuf),file={0:__import__("sys").stdin,1:__import__("sys").stdout,2:__import__("sys").stderr}.get(fd), end='', flush=False)
@@ -34,20 +35,17 @@ def sys_oldumount(name): pass
 
 def linux_kernel_2_6(uc, intno, user_data):
   if intno == 0x80:
-    try:
-      args,args_,function_lookup={
-        u'ebx': uc.reg_read(UC_X86_REG_EBX),
-        u'ecx': uc.reg_read(UC_X86_REG_ECX),
-        u'edx': uc.reg_read(UC_X86_REG_EDX),
-        u'esi': uc.reg_read(UC_X86_REG_ESI),
-        u'edi': uc.reg_read(UC_X86_REG_EDI),
-      },{},''
-      for arg in args:
-        if args[arg] != 0:
-          args_[arg]=args[arg]
-      args=args_
-     except NameError:
-      pass
+    args,args_,function_lookup={
+      u'ebx': uc.reg_read(UC_X86_REG_EBX),
+      u'ecx': uc.reg_read(UC_X86_REG_ECX),
+      u'edx': uc.reg_read(UC_X86_REG_EDX),
+      u'esi': uc.reg_read(UC_X86_REG_ESI),
+      u'edi': uc.reg_read(UC_X86_REG_EDI),
+    },{},''
+    for arg in args:
+      if args[arg] != 0:
+        args_[arg]=args[arg]
+    args=args_
     for a in open('linux_kernels/x86_32/function_lookup.txt', mode='r').readlines():
       function_lookup+=a
     eval(function_lookup).get(uc.reg_read(UC_X86_REG_EAX))(**args)
