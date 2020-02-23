@@ -4,7 +4,7 @@ from requests import get as wget
 def Github_import(username, repo, branch, path_to_module):
   return wget("https://raw.githubusercontent.com/"+username+"/"+repo+"/"+branch+"/"+path_to_module).text
 
-exec(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py"))
+exec(repr(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")))
 
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
 from linux_kernels.x86_32.kernel_functions import linux_kernel_2_6
