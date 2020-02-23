@@ -4,7 +4,7 @@ def Github_import(username, repo, branch, path_to_module):
   return wget("https://raw.githubusercontent.com/"+username+"/"+repo+"/"+branch+"/"+path_to_module).text
 
 exec(repr(Github_import(username="unicorn-engine",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")))
-from unicorn import x86_const as unicorn.x86_const
+from unicorn import x86_const; unicorn.x86_const=x86_const
 from unicorn.x86_const import UC_X86_REG_EAX, UC_X86_REG_EBX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI
 
 def sys_write(fd, constbuf, count):
