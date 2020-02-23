@@ -6,7 +6,7 @@ def Github_import(username, repo, branch, path_to_module):
 
 global unicorn
 
-exec(repr(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")))
+exec(eval(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")))
 #exec(repr(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/__init__.py")))
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
 
