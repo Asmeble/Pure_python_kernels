@@ -8,7 +8,7 @@ exec(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_mo
 #exec(repr(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/__init__.py")))
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
 
-exec(Github_import(username="Asmeble",repo="The_wrecking_ball",branch="v1-beta_2.22.2020", path_to_module="linux_kernels/x86_32/kernel_functions.py"))
+eval(Github_import(username="Asmeble",repo="The_wrecking_ball",branch="v1-beta_2.22.2020", path_to_module="linux_kernels/x86_32/kernel_functions.py"))
 print(dir())
 mu=Uc(UC_ARCH_X86, UC_MODE_32)
 mu.mem_map(0, 4*1024)
