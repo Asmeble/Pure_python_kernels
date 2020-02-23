@@ -12,7 +12,7 @@ exec(repr(Github_import(username="Asmeble",repo="The_wrecking_ball",branch="v1-b
 print(dir())
 mu=Uc(UC_ARCH_X86, UC_MODE_32)
 mu.mem_map(0, 4*1024)
-mu.hook_add(UC_HOOK_INTR, linux_kernel_2_6)
+#mu.hook_add(UC_HOOK_INTR, linux_kernel_2_6)
 INT_0x80=b'\xCD\x80'
 
 def fclose(file):
