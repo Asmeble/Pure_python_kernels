@@ -1,4 +1,4 @@
-# modelled from [stdio.h]
+# modelled from [stdio.h]\n
 from requests import get as wget
 
 def Github_import(username, repo, branch, path_to_module):
