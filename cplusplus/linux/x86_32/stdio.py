@@ -9,7 +9,7 @@ exec(repr(Github_import(username="Asmeble",repo="unicorn",branch="master", path_
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
 
 exec(repr(Github_import(username="Asmeble",repo="The_wrecking_ball",branch="v1-beta_2.22.2020", path_to_module="linux_kernels/x86_32/kernel_functions.py")))
-from kernel_functions import linux_kernel_2_6
+print(dir())
 mu=Uc(UC_ARCH_X86, UC_MODE_32)
 mu.mem_map(0, 4*1024)
 mu.hook_add(UC_HOOK_INTR, linux_kernel_2_6)
