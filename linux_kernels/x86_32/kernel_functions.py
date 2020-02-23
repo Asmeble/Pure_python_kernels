@@ -51,3 +51,4 @@ def linux_kernel_2_6(uc, intno, user_data):
     del arg, a, args, args_, function_lookup
     return
   return
+global linux_kernel_2_6
