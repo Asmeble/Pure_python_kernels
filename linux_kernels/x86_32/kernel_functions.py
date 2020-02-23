@@ -34,17 +34,20 @@ def sys_oldumount(name): pass
 
 def linux_kernel_2_6(uc, intno, user_data):
   if intno == 0x80:
-    args,args_,function_lookup={
-      u'ebx': uc.reg_read(UC_X86_REG_EBX),
-      u'ecx': uc.reg_read(UC_X86_REG_ECX),
-      u'edx': uc.reg_read(UC_X86_REG_EDX),
-      u'esi': uc.reg_read(UC_X86_REG_ESI),
-      u'edi': uc.reg_read(UC_X86_REG_EDI),
-    },{},''
-    for arg in args:
-      if args[arg] != 0:
-        args_[arg]=args[arg]
-    args=args_
+    try:
+      args,args_,function_lookup={
+        u'ebx': uc.reg_read(UC_X86_REG_EBX),
+        u'ecx': uc.reg_read(UC_X86_REG_ECX),
+        u'edx': uc.reg_read(UC_X86_REG_EDX),
+        u'esi': uc.reg_read(UC_X86_REG_ESI),
+        u'edi': uc.reg_read(UC_X86_REG_EDI),
+      },{},''
+      for arg in args:
+        if args[arg] != 0:
+          args_[arg]=args[arg]
+      args=args_
+     except NameError:
+      pass
     for a in open('linux_kernels/x86_32/function_lookup.txt', mode='r').readlines():
       function_lookup+=a
     eval(function_lookup).get(uc.reg_read(UC_X86_REG_EAX))(**args)
