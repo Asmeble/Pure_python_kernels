@@ -1,7 +1,13 @@
 # modelled from [stdio.h]
-from __future__ import print_function
+from requests import get as wget
+
+def Github_import(username, repo, branch, path_to_module):
+  return wget("https://raw.githubusercontent.com/"+username+"/"+repo+"/"+branch+"/"+path_to_module).text
+
+exec(repr(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")))
+exec(Github_import(username="Asmeble",repo="The_wrecking_ball",branch="v1-beta_2.22.2020", path_to_module="linux_kernels/x86_32/kernel_functions.py"))
+
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
-from linux_kernels.x86_32.kernel_functions import linux_kernel_2_6
 
 mu=Uc(UC_ARCH_X86, UC_MODE_32)
 mu.mem_map(0, 4*1024)
@@ -102,15 +108,15 @@ def scanf(format_, *va_list): # va_list gets treated like a pointer.
   del getkey, pos_, s_0
 
 def printf(format_, *va_list):
+  global INT_0x80, mu
   X86_CODE32,ZB_Array=b'',b'\0'*3
-  for a in format_:
-    X86_CODE32+=b'\xBA\1'+ZB_Array+b'\xB9'+eval(f"b'{chr(92)+hex(a)[1:]}'")+ZB_Array+b'\xBB\1'+ZB_Array+b'\xB8\4'+ZB_Array+INT_0x80
-    del a
+  with __import__("multiprocessing").Pool(5) as p:
+    for a in format_:
+      X86_CODE32+=b'\xBA\1'+ZB_Array+b'\xB9'+eval(f"b'{chr(92)+hex(a)[1:]}'")+ZB_Array+b'\xBB\1'+ZB_Array+b'\xB8\4'+ZB_Array+INT_0x80
   mu.mem_write(0, X86_CODE32)
   mu.emu_start(0, len(X86_CODE32))
   mu.emu_stop()
   for b in va_list:
     print(b.decode('ascii'), end='')
-    del b
   del ZB_Array, X86_CODE32
   return 0
