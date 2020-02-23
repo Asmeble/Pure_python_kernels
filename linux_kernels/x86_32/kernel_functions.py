@@ -5,7 +5,7 @@ def Github_import(username, repo, branch, path_to_module):
 
 exec(repr(Github_import(username="unicorn-engine",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")))
 exec(repr(Github_import(username="unicorn-engine",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/x86_const.py")))
-from x86_const import UC_X86_REG_EBX
+from x86_const import UC_X86_REG_EBX;
 from x86_const import UC_X86_REG_EAX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI
 
 def sys_write(fd, constbuf, count):
