@@ -3,6 +3,7 @@ from requests import get as wget
 def Github_import(username, repo, branch, path_to_module):
   return wget("https://raw.githubusercontent.com/"+username+"/"+repo+"/"+branch+"/"+path_to_module).text
 
+global UC_X86_REG_EAX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI, UC_X86_REG_EBX
 exec(repr(Github_import(username="unicorn-engine",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")))
 from unicorn.x86_const import UC_X86_REG_EAX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI, UC_X86_REG_EBX
 
@@ -32,6 +33,7 @@ def sys_mount(src, trgt, fs_type, mountflags, constdata): pass
 def sys_oldumount(name): pass
 
 def linux_kernel_2_6(uc, intno, user_data):
+  global UC_X86_REG_EAX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI, UC_X86_REG_EBX
   if intno == 0x80:
     args,args_,function_lookup={
       u'ebx': uc.reg_read(UC_X86_REG_EBX),
