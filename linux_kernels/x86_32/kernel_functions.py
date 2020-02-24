@@ -49,7 +49,10 @@ def linux_kernel_2_6(uc, intno, user_data):
     args=args_
     for a in wget("https://raw.githubusercontent.com/Asmeble/The_wrecking_ball/v1-beta_2.22.2020/linux_kernels/x86_32/function_lookup.txt").text:
       function_lookup+=a
-    eval(function_lookup).get(uc.reg_read(UC_X86_REG_EAX))(**args)
+    try:
+      eval(function_lookup).get(uc.reg_read(UC_X86_REG_EAX))(**args)
+    except NameError:
+      pass
     del arg, a, args, args_, function_lookup
     return
   return
