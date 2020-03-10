@@ -62,7 +62,7 @@ def fwrite(ptr, size, count, stream):
   stream.write(ptr_[:__import__('ctypes').sizeof(size)+count-1:]); del ptr_, malloc
 
 def getc(file):
-  return file.read(1)
+  return fgetc(file)
 
 def getchar():
   return open('/dev/tty','r').read(1)
