@@ -1,10 +1,7 @@
 # modelled from [stdio.h]
-from requests import get as wget
+from github_import import Github_import
 
-def Github_import(username, repo, branch, path_to_module):
-  return wget("https://raw.githubusercontent.com/"+username+"/"+repo+"/"+branch+"/"+path_to_module).text
-
-exec(repr(Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")))
+Github_import(username="Asmeble",repo="unicorn",branch="master", path_to_module="bindings/python/unicorn/unicorn.py")
 exec(Github_import(username="Asmeble",repo="The_wrecking_ball",branch="v1-beta_2.22.2020", path_to_module="linux_kernels/x86_32/kernel_functions.py"))
 
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
