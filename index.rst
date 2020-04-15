@@ -7,5 +7,3 @@ Due note that it is possible to import local to your runtime and override or pat
 ###################################
 
 As I update this repository, the master branch will be updated with a change log; the next update will include what changed.
-
-https://unicorn-scaled-and-scanned-the-globe.dylaneliot.repl.run/ is an example showing it install a package and them running my code from the branch I was testing with, and continue to test with.
