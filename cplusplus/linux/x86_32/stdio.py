@@ -1,12 +1,12 @@
-# modelled from [stdio.h]
-from github_import import Github_import
-exec(Github_import(username="Asmeble",repo="The_wrecking_ball",branch="v1-beta_2.22.2020", path_to_module="linux_kernels/x86_32/kernel_functions.py"))
+INT_0x80=b'\xCD\x80'
+X86_CODE32=b''
 
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
+from kernels.linux.x86_32.d7_26_2020.L2_6 import linux_kernel_2_6
+
 mu=Uc(UC_ARCH_X86, UC_MODE_32)
 mu.mem_map(0, 4*1024)
 mu.hook_add(UC_HOOK_INTR, linux_kernel_2_6)
-INT_0x80=b'\xCD\x80'
 
 def fclose(file):
   file.close()
@@ -84,16 +84,14 @@ def scanf(format_, *va_list): # va_list gets treated like a pointer.
     del a
   va_list[0][0]=s_0.encode('ascii')
   del getkey, pos_, s_0
-def printf(format_, *va_list):
-  global INT_0x80, mu
-  X86_CODE32,ZB_Array=b'',b'\0'*3
-  with __import__("multiprocessing").Pool(5) as p:
-    for a in format_:
-      X86_CODE32+=b'\xBA\1'+ZB_Array+b'\xB9'+eval(f"b'{chr(92)+hex(a)[1:]}'")+ZB_Array+b'\xBB\1'+ZB_Array+b'\xB8\4'+ZB_Array+INT_0x80
+
+def printf(chars_, *va_list):
+  global mu, INT_0x80, X86_CODE32
+  with __import__("multiprocessing").Pool(len(va_list) if len(va_list) != 0 else 1):
+    for a in chars_ % va_list:
+      X86_CODE32+=b'\xBA\x01'+b'\x00\x00\x00'+b'\xB9'+eval(f"b'{chr(a) if hex(a) != '0xa' else ''}'")+b'\0'*3+b'\xBB\1'+b'\x00\x00\x00'+b'\xB8\4'+b'\x00\x00\x00'+INT_0x80
   mu.mem_write(0, X86_CODE32)
   mu.emu_start(0, len(X86_CODE32))
   mu.emu_stop()
-  for b in va_list:
-    print(b.decode('ascii'), end='')
-  del ZB_Array, X86_CODE32
-  return 0
+  mu.mem_write(0, b''*len(X86_CODE32))
+  X86_CODE32=b''
