@@ -1,4 +1,5 @@
 #from . import * ###
+x86_32_path="linux_kernels/x86_32/"
 with __import__("github_import").Git_import(username="Asmeble", repo="The_wrecking_ball", branch="v-07.28.2020", path_to_module=x86_32_path+"L2_6.py") as __init__:
   sys_write=__init__.sys_write
 # This tells the interpreter to read __init__.py and pull all of the functionality needed based on the function 
