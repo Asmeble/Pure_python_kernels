@@ -11,7 +11,7 @@ For Windows:
   2) Clone the repository and copy "linux_kernels" subdirectory to the location of your choice.
   3) Use python3-pip to install unicorn-engine, requests, and their dependencies.
   4) Use "github_import.py" to copy each "c/c++ library & their c/c++ functions" from "github.com/Asmeble/The_wrecking_ball/tree/{ latest version by branch name }/cplusplus"
-       into the runtime with as many functions as you need copied. If you need to use just one, I recommend using ".__enter__()" to link the function into your local python
+       into the runtime with as many functions as you need copied. If you need to use just one, I recommend using ".\_\_enter\_\_()" to link the function into your local python
       instance.
 
  For Linux:
