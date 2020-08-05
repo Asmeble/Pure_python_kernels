@@ -1,4 +1,4 @@
-This is the latest version may be found under tags. The code runs like C/C++ compiled functions without being compiled code.
+This is the latest version may be found under the "branches" tab of the repository. The code runs like C/C++ compiled functions without being compiled code.
 
 This project is meant to provide a linux or Mac OS like virtual kernel inside userspace execution (where programs are normally run). It demonstrates the implementation of python functionality to support kernel emulation to support C/C++ functions without having to compile, and the same is true for using the kernel functions. Do note that the c/c++ functions do link against a kernel and their is an effective if not efficient when it responds to kernel interrupts.
 
