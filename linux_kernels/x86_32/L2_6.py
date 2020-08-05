@@ -1,4 +1,7 @@
-from . import * ###
+#from . import * ###
+with __import__("github_import").Git_import(username="Asmeble", repo="The_wrecking_ball", branch="v-07.28.2020", path_to_module=x86_32_path+"L2_6.py") as __init__:
+  __init__=__init__
+  from __init__ import *
 # This tells the interpreter to read __init__.py and pull all of the functionality needed based on the function 
 #  lookup list. This means that the 
 
