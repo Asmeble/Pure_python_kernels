@@ -20,3 +20,12 @@ For Windows:
 
  For Mac:
   1) Follow instructions as written under "For Linux".
+
+
+Below will be a sequences of links for those that would like to attempt at building a mock linux, mac, or windows kernel of your own:
+  https://man7.org/linux/man-pages/dir_section_2.html
+  https://www.theiphonewiki.com/wiki/Kernel_Syscalls
+  https://github.com/apple/darwin-xnu/blob/master/bsd/kern/syscalls.master
+  http://newosxbook.com/index.php?page=Appendix
+  https://repl.it/ if you want to use a website instead of running it on your local machine.
+  https://docs.darlinghq.org/internals/basics/system-call-emulation.html
