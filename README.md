@@ -7,4 +7,4 @@ The project is compatible with Windows, linux, and Mac OS.
 
 
 The way you use it is like this [python -c "from cplusplus.linux.x86_32.d2_22_2020.stdio import printf; printf(b'we will se shortly')"] and it should work. Because it is a
- python based kernel, unique errors can occur. Testing in and around the virtual kernel will help when debugging.
+ python based kernel, unique errors can occur. Testing in and around the virtual kernel will help when debugging. The installation is wherever you put the code.
