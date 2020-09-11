@@ -2,7 +2,7 @@ INT_0x80 = b'\xCD\x80'
 X86_CODE32 = b''
 trip0 = b'\0' * 3
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
-from kernels.linux.x86_32.d7_26_2020.L2_6 import linux_kernel_2_6
+from kernels.linux.x86_32.L2_6 import linux_kernel_2_6
 
 mu = Uc(UC_ARCH_X86, UC_MODE_32)  # <-------|
 #                                           |
