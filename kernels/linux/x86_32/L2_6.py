@@ -10,7 +10,7 @@ def linux_kernel_2_6(uc, intno, user_data):
       if args[arg] != 0:
         args_[arg]=args[arg]
     args=args_
-    from kernels.linux.x86_32.d7_26_2020 import Linux_kernel_functions_on_eax
+    from kernels.linux.x86_32 import Linux_kernel_functions_on_eax
     x=Linux_kernel_functions_on_eax.func_list
     try:
       x.get(uc.reg_read(UC_X86_REG_EAX))(**args)
