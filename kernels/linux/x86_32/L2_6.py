@@ -1,6 +1,6 @@
 from unicorn.x86_const import UC_X86_REG_EAX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI, UC_X86_REG_EBX
-from .__init__ import *
-sys_write=sys_write; # Perform sanity checks of functions ahead of time.....
+#from .__init__ import *
+#sys_write=sys_write; # Perform sanity checks of functions ahead of time.....
 UC_X86_REG_EAX=UC_X86_REG_EAX; UC_X86_REG_ECX=UC_X86_REG_ECX; UC_X86_REG_EDX=UC_X86_REG_EDX; UC_X86_REG_ESI=UC_X86_REG_ESI; UC_X86_REG_EDI=UC_X86_REG_EDI; UC_X86_REG_EBX=UC_X86_REG_EBX
 def linux_kernel_2_6(uc, intno, user_data):
   global UC_X86_REG_EAX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI, UC_X86_REG_EBX
