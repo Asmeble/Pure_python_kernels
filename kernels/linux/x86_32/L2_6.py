@@ -1,6 +1,6 @@
 from unicorn.x86_const import UC_X86_REG_EAX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI, UC_X86_REG_EBX
-Git_import=__import__("github_import").Git_import #from .__init__ import *
-sys_write=Git_import("Asmeble", "Pure_python_kernels", "v-stable-09_10_2020", "kernels/linux/x86_32/"+"__init__.py").__enter__().sys_write #sys_write=sys_write; # Perform sanity checks of functions ahead of time.....
+from .__init__ import * #### Git_import=__import__("github_import").Git_import
+sys_write=sys_write; # Perform sanity checks of functions ahead of time.....   #### sys_write=Git_import("Asmeble", "Pure_python_kernels", "v-stable-09_10_2020", "kernels/linux/x86_32/"+"__init__.py").__enter__().sys_write 
 UC_X86_REG_EAX=UC_X86_REG_EAX; UC_X86_REG_ECX=UC_X86_REG_ECX; UC_X86_REG_EDX=UC_X86_REG_EDX; UC_X86_REG_ESI=UC_X86_REG_ESI; UC_X86_REG_EDI=UC_X86_REG_EDI; UC_X86_REG_EBX=UC_X86_REG_EBX
 def linux_kernel_2_6(uc, intno, user_data):
   global UC_X86_REG_EAX, UC_X86_REG_ECX, UC_X86_REG_EDX, UC_X86_REG_ESI, UC_X86_REG_EDI, UC_X86_REG_EBX
