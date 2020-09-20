@@ -9,4 +9,7 @@ The project is compatible with Windows, linux, and Mac OS.
 The way you use it is like this [python -c "from cplusplus.linux.x86_32.stdio import printf; printf(b'we will se shortly')"] and it should work. Because it is a
  python based kernel, unique errors can occur. Testing in and around the virtual kernel will help when debugging. The installation is wherever you put the code.
 
-The current version is under the tag "v-stable-09_10_2020". 
+The current version is under the tag "v-stable-09_11_2020".
+
+recommended cloning by branch can be done like so:
+ "git clone --branch <branch_to_checkout> <url to repository with '.git' extension>"
