@@ -3,8 +3,6 @@ X86_CODE32 = b''
 trip0 = b'\0' * 3
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
 
-from github_import import Git_import
-
 from kernels.linux.x86_32.L2_6 import linux_kernel_2_6
 
 mu = Uc(UC_ARCH_X86, UC_MODE_32)  # <-------|
