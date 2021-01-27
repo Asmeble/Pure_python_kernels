@@ -2,7 +2,13 @@ INT_0x80 = b'\xCD\x80'
 X86_CODE32 = b''
 trip0 = b'\0' * 3
 from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_INTR
-from kernels.linux.x86_32.L2_6 import linux_kernel_2_6
+
+from github_import import Git_import
+
+#from kernels.linux.x86_32.L2_6 import linux_kernel_2_6
+with Git_import(username="Asmeble", repo="Pure_python_kernels", branch="v-stable-09-11-2020", path_to_module="kernels/linux/x86_32/L2_6.py") as L2_6:
+  linux_kernel_2_6=L2_6.linux_kernel_2_6
+
 mu = Uc(UC_ARCH_X86, UC_MODE_32)  # <-------|
 #                                           |
 Mem_size = 4 * 1024  #<--------------------------------- These are specific to the functionality surrounding assembly parsing and execution.
